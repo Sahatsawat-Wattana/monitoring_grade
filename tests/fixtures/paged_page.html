@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+	<title>มหาวิทยาลัยขอนแก่น</title>
+	<meta http-equiv=Content-Type content="text/html; charset=windows-874">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="m0Eg0sEUEEW1HjezVyZFuTZ4WIzqPFXSDXWz0QRMunU" />
+	<link rel="stylesheet" type="text/css" href="style/STYLE.css">
+	<link rel="stylesheet" type="text/css" href="images/App_Themes/Aqua/Web/stylesx.css" />
+	<link rel="stylesheet" type="text/css" href="images/App_Themes/HatchedGray/Web/stylesx.css" />
+	<script src="style/popupmenu/SpryMenuBar.js" type="text/javascript"></script>
+	<link href="style/popupmenu/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" type="text/css" href="style/default.css" />
+	<link rel="stylesheet" type="text/css" href="style/font.css" />
+	<link rel="stylesheet" type="text/css" href="style/form.css" />
+	<style> 
+	
+		.black-header{
+		  text-align:center
+		}
+
+		.black-ribbon {
+		  display: none;
+		  width: 70px;
+		}
+
+
+		@media only all and (min-width: 1000px) {
+		  .black-header
+		  {
+		    display: none;
+		  }
+
+		  .black-ribbon {
+  		    display: block;
+  		    position: fixed;
+		    z-index: 999;
+			width: auto;
+		  }
+		}
+
+		.stick-left { left: 0; }
+		.stick-right { right: 0; }
+		.stick-top { top: 0; }
+		.stick-bottom { bottom: 0; }
+
+	</style>
+	
+	<script type="text/javascript">
+		function onDocumentLoaded () {
+			var menu = document.getElementById('menu').cloneNode(true);
+			menu.removeAttribute('id');
+			menu.className = "menu";
+
+			var header = document.getElementById('header')
+			var wrapper = header.getElementsByClassName('wrapper')[0]
+			wrapper.append(menu)
+
+			var footer = document.createElement("div");
+			footer.id = "footer";
+
+			var wrapper = document.createElement("div");
+			wrapper.className = "wrapper";
+
+			var logo = document.createElement("img");
+			logo.setAttribute("src", "images/logo.png");
+
+			var headline = document.createElement("div")
+			headline.className = "headline"
+			headline.innerHTML = "มหาวิทยาลัยขอนแก่น"
+
+			var detail = document.createElement("div");
+			detail.className = "detail"
+			detail.append(headline.cloneNode(true))
+			detail.append("123.. หมู่ 16 ถ.มิตรภาพ ต.ในเมือง อ.เมือง จ.ขอนแก่น 40002\nอีเมล reg@kku.ac.th")
+
+			var detailMobile = document.createElement("div");
+			detailMobile.className = "detail-mobile"
+			detailMobile.append(headline.cloneNode(true))
+			detailMobile.append("123-- หมู่ 16 ถ.มิตรภาพ ต.ในเมือง\nอ.เมือง จ.ขอนแก่น 40002\nอีเมล reg@kku.ac.th")
+
+			wrapper.appendChild(logo);
+			wrapper.appendChild(detail);
+			wrapper.appendChild(detailMobile)
+
+			footer.appendChild(wrapper);
+			document.body.appendChild(footer);
+		}
+		
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', onDocumentLoaded);
+		} else {
+			onDocumentLoaded();
+		}
+	</script>
+	<script type="module" src="https://pdp.kku.ac.th/api/v1/widget"></script>
+</head>
+<div id="waitDiv" style="position:absolute;visibility:hidden"><img id="waitIMG" src=images/common/misc/Loading.gif></div>
+<script type="text/javascript"> 
+		function windowwidth() {
+		  if (navigator.userAgent.indexOf("MSIE") > 0) w=document.body.clientWidth;
+		  else w=window.outerWidth;
+		  return w;
+		}
+		function windowheight() {
+		  if (navigator.userAgent.indexOf("MSIE") > 0) h=document.body.clientHeight;
+		  else h= window.outerHeight;
+		  return h;
+		}
+		var DHTML = (document.getElementById || document.all || document.layers);
+		if (DHTML) {
+		  var obj=document.getElementById("waitDiv");
+		  obj.style.left=(windowwidth()-waitIMG.width)/2;
+		  obj.style.top=(windowheight()-waitIMG.height)/2;
+		}
+		function ap_getObj(name) { 
+		  if (document.getElementById) { 
+			return document.getElementById(name).style; 
+		  } else if (document.all) { 
+			return document.all[name].style; 
+		  } else if (document.layers) { 
+			return document.layers[name]; 
+		  } 
+		} 
+		function ap_showWaitMessage(div, flag) { 
+		  if (!DHTML) return; 
+		  var x = ap_getObj(div); x.visibility = (flag) ? 'visible':'hidden'
+		} 
+
+		ap_showWaitMessage('waitDiv', 1); //แสดงในครั้งแรก
+</script>		<script type="text/javascript">
+
+			//function chk_lang(langid,xpage){
+			//		var i_lang=langid; 
+			//		var x = xpage;
+			//			if(langid !=0 && langid !=1) return ;												
+			
+			//			document.FRM_LANG.submit();
+			//			location.reload(); 
+			//		} 
+			function chk_lang(langid,xpage){
+				const xhr = new XMLHttpRequest();
+				
+				xhr.open('POST', 'changeLanguage.asp',true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xhr.onload = function() {
+				  if (xhr.status >= 200 && xhr.status < 300) {
+				    location.reload();
+				  } else {
+				    console.error('Error:', xhr.statusText);
+				  }
+				};
+				
+				
+				xhr.send("LANGID="+langid);
+				
+			}
+		</script><!-- Google tag (gtag.js) -->
+<script src="https://www.googletagmanager.com/gtag/js?id=G-487Q7SNYC7" integrity="sha384-xRBvloioZ7DHd4B19Ea8QMvLogs2xk6JnNSd46UFcBbq+GhDiGmydmNZnlw+f8Px" crossorigin="anonymous"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-487Q7SNYC7',{ 'cookie_domain': window.location.hostname, 'cookieFlags': 'SameSite=None; Secure' });
+</script>
+
+
+<body onload="ap_showWaitMessage('waitDiv', 0);">
+<script src="https://t-reg.kku.ac.th/widget.js" data-site-key="reg" async></script>
+<img src="images/black_ribbons/black_ribbon_top_right.png" class="black-ribbon stick-top stick-right"/>
+<kku-cookie-widget></kku-cookie-widget>
+
+<form method="post" action="changeLanguage.asp" name="FRM_LANG" target="_blank">
+<input type="hidden" id="xpage" name="xpage" value="class_info_status.asp">
+</form>
+<div class="black-header">
+<img src="data:image/png;base64,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" style="position: static;z-index: 999; width:30px;" />  
+<br>
+<span>ด้วยสํานึกในพระมหากรุณาธิคุณเป็นล้นพ้นอันหาที่สุดมิได้ </span>
+</div>
+<div id="header">
+	<div class="wrapper">
+		<div class="menu_button">
+			<img src="icons/menu.svg" onclick="document.getElementById('header').classList.toggle('show-menu')" />
+		</div>
+		<div class="language">
+			<a href="#" onclick="chk_lang(0,'class_info_status.asp')">ไทย</a>
+			<span>|</span>
+			<a href="#" onclick="chk_lang(1,'class_info_status.asp')">ENG</a>
+		</div>
+		<a class="logo" href="#">
+			<img src="images/kku_logo.png" />
+		</a>
+	</div>
+</div>
+<div align="center">
+<div id="wrapper">
+<table style="padding: 0px 20px">
+<tr>
+
+<script type="text/javascript">
+	var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"style/popupmenu/SpryMenuBarDown.gif", imgRight:"style/popupmenu/SpryMenuBarRight.gif"});
+</script>
+
+
+<!-- Begin Menu -->
+<td width="200px">
+	 <div id="title" class="boxed">
+		 <h1 class="title">เมนูหลัก</h1> 		
+	 </div> 
+		<div id="menu" class="style4">
+			<ul>
+
+<li><A HREF=class_status.asp?backto=home>ถอยกลับ</a></li>
+
+			</ul>
+	</div>			
+</td>
+
+<!-- End Menu -->
+
+<!-- Begin Page Detail -->
+<td width="730" valign="top">
+<DIV ALIGN=CENTER><FONT Class=HeaderDetail><br>ทั้งหมด คณะ</DIV><DIV ALIGN=CENTER><FONT Class=HeaderDetail>รหัสวิชา: ED17*</DIV></DIV><DIV ALIGN=CENTER><FONT Class=HeaderDetail></DIV><DIV ALIGN=CENTER><FONT Class=HeaderDetail>จำนวนรายการที่ได้จากการค้นหาไม่เกิน 50 รายการ</DIV><BR><TABLE BORDER=0 CELLSPACING=1 CELLPADDING=0><TR><TD></TD><TD VALIGN=TOP ALIGN=CENTER><A HREF=#bottom><IMG SRC=images/common/button/pull_down_1.gif WIDTH=11 HEIGHT=10 BORDER=0></A></TD><TD COLSPAN=7><FONT Class=HeaderDetail>ใช้เม้าส์คลิ๊กที่รหัสวิชาเพื่อแสดงรายละเอียดของวิชานั้นๆ</TD></TR><TR Class=HeaderDetail><TD></TD><TD ROWSPAN=2 BGCOLOR=#383880><FONT COLOR=#FFFFFF>&nbsp;รหัสวิชา</FONT></TD><TD ROWSPAN=2 BGCOLOR=#383880><FONT COLOR=#FFFFFF>&nbsp;ชื่อรายวิชา</FONT></TD><TD ROWSPAN=2 NOWRAP BGCOLOR=#383880><FONT COLOR=#FFFFFF>&nbsp;หน่วยกิต&nbsp;</FONT></TD><TD COLSPAN=5 NOWRAP ALIGN=CENTER BGCOLOR=#383880><FONT COLOR=#FFFFFF>&nbsp;ข้อมูลรายวิชาในปีการศึกษาที่&nbsp;/</FONT></TD></TR><TR Class=HeaderDetail><TD></TD><TD ALIGN=RIGHT BGCOLOR=#383880><FONT COLOR=#FFFFFF>กลุ่ม&nbsp;</FONT></TD><TD ALIGN=RIGHT BGCOLOR=#383880><FONT COLOR=#FFFFFF>รับ&nbsp;</FONT></TD><TD ALIGN=RIGHT BGCOLOR=#383880><FONT COLOR=#FFFFFF>ลง&nbsp;</FONT></TD><TD ALIGN=RIGHT BGCOLOR=#383880><FONT COLOR=#FFFFFF>เหลือ&nbsp;</FONT></TD><TD BGCOLOR=#383880><FONT COLOR=#FFFFFF>&nbsp;สถานะ</FONT></TD></TR></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653739&acadyear=2560&semester=2&avs909765504=1>ED171001</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;ADVANCED PERCEPTION SKILLS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653739&acadyear=2561&semester=2&avs909765504=2>ED171001</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;ADVANCED PERCEPTION SKILLS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653739&acadyear=2561&semester=2&avs909765504=3>ED171001</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;ADVANCED PERCEPTION SKILLS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653741&acadyear=2560&semester=2&avs909765504=4>ED171002</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;DYNAMICS OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>3&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653741&acadyear=2561&semester=2&avs909765504=5>ED171002</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;DYNAMICS OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653741&acadyear=2561&semester=2&avs909765504=6>ED171002</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;DYNAMICS OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653742&acadyear=2560&semester=1&avs909765504=7>ED171003</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653742&acadyear=2561&semester=1&avs909765504=8>ED171003</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653742&acadyear=2561&semester=1&avs909765504=9>ED171003</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653743&acadyear=2560&semester=2&avs909765504=10>ED171004</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;PRODUCING AND USING BOOKS FOR CHILD AND YOUTH</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>3&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653743&acadyear=2561&semester=2&avs909765504=11>ED171004</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;PRODUCING AND USING BOOKS FOR CHILD AND YOUTH</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653743&acadyear=2561&semester=2&avs909765504=12>ED171004</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;PRODUCING AND USING BOOKS FOR CHILD AND YOUTH</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653749&acadyear=2560&semester=1&avs909765504=13>ED171005</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LEARNING THE LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653749&acadyear=2561&semester=1&avs909765504=14>ED171005</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LEARNING THE LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653749&acadyear=2561&semester=1&avs909765504=15>ED171005</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LEARNING THE LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653751&acadyear=2560&semester=1&avs909765504=16>ED171006</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;WISDOM OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>3&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653751&acadyear=2561&semester=1&avs909765504=17>ED171006</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;WISDOM OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653751&acadyear=2561&semester=1&avs909765504=18>ED171006</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;WISDOM OF  THAI LANGUAGE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>2&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653753&acadyear=2560&semester=1&avs909765504=19>ED171007</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;STORY TELLING FOR TEACHING AND LEARNING</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>27&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653753&acadyear=2561&semester=1&avs909765504=20>ED171007</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;STORY TELLING FOR TEACHING AND LEARNING</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>3&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613653753&acadyear=2561&semester=1&avs909765504=21>ED171007</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;STORY TELLING FOR TEACHING AND LEARNING</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>4&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>30&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662660&acadyear=2562&semester=1&avs909765504=22>ED171009</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662660&acadyear=2563&semester=1&avs909765504=23>ED171009</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>59&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662660&acadyear=2564&semester=1&avs909765504=24>ED171009</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LINGUISTICS FOR THAI LANGUAGE TEACHERS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>61&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662661&acadyear=2562&semester=1&avs909765504=25>ED171010</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;WISDOM AND THAI LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662661&acadyear=2563&semester=1&avs909765504=26>ED171010</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;WISDOM AND THAI LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>59&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662661&acadyear=2564&semester=1&avs909765504=27>ED171010</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;WISDOM AND THAI LOCAL LITERATURE</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>0&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662662&acadyear=2562&semester=2&avs909765504=28>ED171011</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LISTENING, VIEWING AND SPEAKING SKILLS IN BASIC EDUCATION</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (2-2-5)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>46&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>4&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662662&acadyear=2563&semester=2&avs909765504=29>ED171011</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LISTENING, VIEWING AND SPEAKING SKILLS IN BASIC EDUCATION</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (2-2-5)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>57&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662662&acadyear=2564&semester=2&avs909765504=30>ED171011</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LISTENING, VIEWING AND SPEAKING SKILLS IN BASIC EDUCATION</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (2-2-5)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>58&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>2&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662663&acadyear=2562&semester=2&avs909765504=31>ED171012</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;THAI GRAMMAR 1</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>46&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>4&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662663&acadyear=2563&semester=2&avs909765504=32>ED171012</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;THAI GRAMMAR 1</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>57&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>3&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662663&acadyear=2564&semester=2&avs909765504=33>ED171012</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;THAI GRAMMAR 1</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>58&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>2&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2562&semester=1&avs909765504=34>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>50&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2563&semester=1&avs909765504=35>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>59&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2564&semester=1&avs909765504=36>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2565&semester=1&avs909765504=37>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2566&semester=1&avs909765504=38>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2567&semester=1&avs909765504=39>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2568&semester=1&avs909765504=40>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662666&acadyear=2569&semester=1&avs909765504=41>ED171015</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;BOOKS FOR CHILDREN AND LEARNING MANAGEMENT</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/red.gif WIDTH=20 HEIGHT=20 TITLE='รออาจารย์ส่งเกรด'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662667&acadyear=2563&semester=2&avs909765504=42>ED171016</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LITERATURE IN THAI LANGUAGE TEXTBOOKS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>49&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>45&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>4&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662667&acadyear=2564&semester=2&avs909765504=43>ED171016</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;LITERATURE IN THAI LANGUAGE TEXTBOOKS</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>60&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>57&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>3&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613662667&acadyear=2565&semester=2&avs909765504=44>ED171016</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;LITERATURE IN THAI LANGUAGE TEXTBOOKS</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>58&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>57&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668325&acadyear=2565&semester=1&avs909765504=45>ED171017</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;Wisdom and Thai Local Literature</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668325&acadyear=2566&semester=1&avs909765504=46>ED171017</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;Wisdom and Thai Local Literature</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668325&acadyear=2567&semester=1&avs909765504=47>ED171017</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;Wisdom and Thai Local Literature</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/red.gif WIDTH=20 HEIGHT=20 TITLE='รออาจารย์ส่งเกรด'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668325&acadyear=2568&semester=1&avs909765504=48>ED171017</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;Wisdom and Thai Local Literature</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>0&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/red.gif WIDTH=20 HEIGHT=20 TITLE='รออาจารย์ส่งเกรด'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0F5>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668325&acadyear=2569&semester=1&avs909765504=49>ED171017</A>&nbsp;</TD><TD BGCOLOR=#F0F0F5>&nbsp;Wisdom and Thai Local Literature</TD><TD NOWRAP BGCOLOR=#F0F0F5>&nbsp;2 (1-2-3)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>39&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0F5>1&nbsp;</TD><TD BGCOLOR=#F0F0F5><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/red.gif WIDTH=20 HEIGHT=20 TITLE='รออาจารย์ส่งเกรด'></Center></TD><TD></TD></TR><TR VALIGN=TOP Class=NormalDetail><TD WIDTH=30></TD><TD BGCOLOR=#F0F0FF>&nbsp;<A HREF=class_info_2.asp?backto=home&option=0&courseid=3613668326&acadyear=2565&semester=2&avs909765504=50>ED171018</A>&nbsp;</TD><TD BGCOLOR=#F0F0FF>&nbsp;Thai Grammar</TD><TD NOWRAP BGCOLOR=#F0F0FF>&nbsp;3 (3-0-6)</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>1&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>40&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>38&nbsp;</TD><TD ALIGN=RIGHT BGCOLOR=#F0F0FF>2&nbsp;</TD><TD BGCOLOR=#F0F0FF><FONT SIZE=1><Center>&nbsp;<IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'></Center></TD><TD></TD></TR><TR><TD WIDTH=30></TD><TD COLSPAN=3 Class=NormalDetail>[หน้าก่อน]
+<A HREF=class_info_status.asp?facultyid=&acadyear=&semester=&coursestatus=&option=0&coursecode=ED17*&coursename=&coursecodeSerch=ED1710181&maxrow=50&page=5&backto=home&LaststartSerch=ED1710011;>[หน้าต่อไป]</A></TD>
+</TR></TABLE><br><font size=2>&nbsp;&nbsp;&nbsp; <u>ขั้นตอนส่งเกรด</u><br>&nbsp;&nbsp;&nbsp; 1. <IMG SRC=images/common/button/blue.gif WIDTH=20 HEIGHT=20 TITLE='ยังไม่มีนักศึกษาลงทะเบียน'> ยังไม่มีนักศึกษาลงทะเบียน<br>&nbsp;&nbsp;&nbsp; 2. <IMG SRC=images/common/button/red.gif WIDTH=20 HEIGHT=20 TITLE='รออาจารย์ส่งเกรด'> รออาจารย์ส่งเกรด<br>&nbsp;&nbsp;&nbsp; 3. <IMG SRC=images/common/button/yellow.gif WIDTH=20 HEIGHT=20 TITLE='รอคณะส่งเกรด'> รอคณะส่งเกรด<br>&nbsp;&nbsp;&nbsp; 4. <IMG SRC=images/common/button/green.gif WIDTH=20 HEIGHT=20 TITLE='ส่งเกรดสมบูรณ์'> ส่งเกรดสมบูรณ์
+<!-- End Page Detail -->
+</tr>
+</table>
+</body>
+</html>

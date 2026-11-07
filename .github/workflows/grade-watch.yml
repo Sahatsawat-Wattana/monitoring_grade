@@ -1,0 +1,59 @@
+name: Grade Watch
+
+on:
+  schedule:
+    # ปรับความถี่การตรวจได้ที่นี่ (เวลาเป็น UTC = เวลาไทย - 7 ชั่วโมง, ถี่สุด 5 นาที)
+    #   "*/15 * * * *"  ทุก 15 นาที
+    #   "0 * * * *"     ทุกชั่วโมง
+    #   "0 1-13 * * *"  ทุกชั่วโมง ช่วง 08:00-20:00 เวลาไทย
+    - cron: "*/30 * * * *"
+  workflow_dispatch: # กดรันเองได้จากแท็บ Actions
+
+permissions:
+  contents: write # ใช้ commit ไฟล์ state กลับเข้า repo
+
+concurrency:
+  group: grade-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check grade status
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          COURSE_PREFIX: ${{ vars.COURSE_PREFIX || 'ED17' }}
+          NOTIFY_NEW: ${{ vars.NOTIFY_NEW || 'true' }}
+        run: python check_grades.py
+
+      # GitHub ปิด scheduled workflow อัตโนมัติถ้า repo ไม่มี commit 60 วัน
+      # ไฟล์นี้เปลี่ยนเดือนละครั้ง จึงมี commit อย่างน้อยเดือนละครั้งเสมอ
+      - name: Keepalive heartbeat
+        run: date -u +%Y-%m > state/heartbeat.txt
+
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          if git diff --cached --quiet; then
+            echo "state unchanged"
+          else
+            git commit -m "chore: update grade status"
+            git pull --rebase
+            git push
+          fi
